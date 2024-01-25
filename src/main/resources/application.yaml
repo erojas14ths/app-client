@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: app-client
+
+services:
+  app-server: http://localhost:8081/server
+
+logging:
+  level:
+    root: INFO
+    com.erojas.lab.appclient: DEBUG
