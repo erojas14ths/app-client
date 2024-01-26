@@ -1,0 +1,21 @@
+name: Commit Stage
+on: push
+
+jobs:
+    build:
+        name: Build and Test
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout source code
+            uses: actions/checkout@v3
+          - name: Set up JDK
+            uses: actions/setup-java@v3
+            with:
+              distribution: temurin
+              java-version: 17
+          - name: Set up Maven
+            uses: hb0730/maven-action@latest
+          - name: Build, unit tests and integration tests
+            run: |
+              chmod +x mvn
+              mvn test
