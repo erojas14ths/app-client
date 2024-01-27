@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17.0.5_8-jre-focal as builder
+FROM eclipse-temurin:17-jre as builder
 WORKDIR extracted
 ADD ./target/*.jar app.jar
 RUN java -Djarmode=layertools -jar app.jar extract
@@ -12,4 +12,4 @@ COPY --from=builder extracted/application/ ./
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
+ENTRYPOINT ["java", "org.springframework.boot.loader.launch.JarLauncher"]
