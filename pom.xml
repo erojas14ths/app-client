@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.erojas.lab</groupId>
 	<artifactId>app-client</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>latest</version>
 	<name>app-client</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
