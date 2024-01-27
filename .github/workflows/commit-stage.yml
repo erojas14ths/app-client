@@ -67,7 +67,7 @@ jobs:
             uses: docker-practice/actions-setup-docker@master
           - name: Build container image
             run: |
-                  docker build -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+                  docker build -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }} .
           - name: OCI image vulnerability scanning
             uses: anchore/scan-action@v3
             id: scan
