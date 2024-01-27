@@ -64,7 +64,7 @@ jobs:
             with:
               maven-version: 3.8.2
           - name: Set up Docker
-            uses: docker/setup-buildx-action@v3
+            uses: docker-practice/actions-setup-docker@master
           - name: Build container image
             run: |
                   docker build -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
