@@ -63,6 +63,9 @@ jobs:
             uses: stCarolas/setup-maven@v4.5
             with:
               maven-version: 3.8.2
+          - name: Package code
+            run: |
+              mvn package
           - name: Set up Docker
             uses: docker-practice/actions-setup-docker@master
           - name: Build container image
@@ -88,3 +91,4 @@ jobs:
               password: ${{ secrets.GITHUB_TOKEN }}
           - name: Publish container image
             run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+
