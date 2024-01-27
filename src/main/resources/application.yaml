@@ -12,3 +12,16 @@ logging:
   level:
     root: INFO
     com.erojas.lab.appclient: DEBUG
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+
+
+server:
+  port: 8080
+
+services:
+  app-server: http://app-server:8080/server
