@@ -1,9 +1,12 @@
 server:
   port: 8080
+  shutdown: graceful
 
 spring:
   application:
     name: app-client
+  lifecycle:
+    timeout-per-shutdown-phase: 15s
 
 services:
   app-server: http://localhost:8081/server
@@ -14,14 +17,21 @@ logging:
     com.erojas.lab.appclient: DEBUG
 
 ---
+
 spring:
   config:
     activate:
       on-profile: docker
 
-
-server:
-  port: 8080
-
 services:
   app-server: http://app-server:8080/server
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: k8s
+
+services:
+  app-server: http://app-server.default.svc.cluster.local:80/server
