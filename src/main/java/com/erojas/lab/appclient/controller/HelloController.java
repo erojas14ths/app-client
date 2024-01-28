@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,9 +32,10 @@ public class HelloController {
         } else {
             url = serviceProperties.getAppServer() + "/hello" + "?name=" + name;
         }
-        var uri = UriComponentsBuilder.fromUriString(url).build();
+        var uri = UriComponentsBuilder.fromUriString(url).build().toUri();
+        log.info("App Server URI: {}", uri);
         return client.get()
-                .uri(uri.toUri())
+                .uri(uri)
                 .retrieve()
                 .bodyToMono(String.class);
 
