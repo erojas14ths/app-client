@@ -1,0 +1,2 @@
+services:
+  app-server: http://app-server.default.svc.cluster.local:80/server
