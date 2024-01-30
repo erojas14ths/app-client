@@ -33,6 +33,7 @@ public class HelloController {
             url = serviceProperties.getAppServer() + "/hello" + "?name=" + name;
         }
         var uri = UriComponentsBuilder.fromUriString(url).build().toUri();
+        log.info("Current profile is: {}", serviceProperties.getProfile());
         log.info("App Server URI: {}", uri);
         return client.get()
                 .uri(uri)

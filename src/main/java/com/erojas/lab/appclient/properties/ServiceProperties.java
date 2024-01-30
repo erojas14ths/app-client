@@ -11,6 +11,10 @@ import lombok.Data;
 public class ServiceProperties {
 
     /* 
+     * Profile enviroment
+     */
+    private String profile;
+        /* 
      * URL app server
      */
     private String appServer;
